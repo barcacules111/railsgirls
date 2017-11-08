@@ -1,0 +1,694 @@
+{
+  "name": "struc_ds",
+  "description": "Imported database from sql server 'aswizarg-server.database.windows.net' and database 'AdventureWorksDBKamil3'",
+  "compatibilityLevel": 1000000,
+  "model": {
+    "name": "struc_ds",
+    "description": "A Tabular data model at the 1400 compatibility level.",
+    "defaultMode": "directQuery",
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SqlServer aswizarg-server.database.windows.net AdventureWorksDBKamil3",
+        "description": "A data source definition that uses explicit sql server credentials from connection string",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "aswizarg-server.database.windows.net",
+            "database": "AdventureWorksDBKamil3"
+          }
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "analytics_admin",
+          "EncryptConnection": true,
+          "Password": null
+        }
+      },
+      {
+        "type": "structured",
+        "name": "SqlServer aswizarg-server.database.windows.net AdventureWorksDBKamil3 2",
+        "description": "A data source definition that uses explicit sql server credentials from connection string",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "aswizarg-server2.database.windows.net",
+            "database": "AdventureWorksDBKamil32"
+          }
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "analytics_admin2",
+          "EncryptConnection": true,
+          "Password": null
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "SalesLT.Address",
+        "description": "All data from SalesLT.Address",
+        "columns": [
+          {
+            "name": "AddressID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "AddressID"
+          },
+          {
+            "name": "AddressLine1",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "AddressLine1",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "AddressLine2",
+            "dataType": "string",
+            "sourceColumn": "AddressLine2",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "City",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "StateProvince",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "StateProvince",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "CountryRegion",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "CountryRegion",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "PostalCode",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "PostalCode",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 8
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.Address",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let ",
+                "Source = #\"SqlServer aswizarg-server.database.windows.net AdventureWorksDBKamil3\", ",
+                "#\"SalesLT_Address\" = Source{[Schema=\"SalesLT\",Item=\"Address\"]}[Data] ",
+                "in ",
+                "#\"SalesLT_Address\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "BuildVersion",
+        "description": "All data from BuildVersion",
+        "columns": [
+          {
+            "name": "SystemInformationID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "SystemInformationID"
+          },
+          {
+            "name": "Database Version",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Database Version",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "VersionDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "VersionDate",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 3
+          }
+        ],
+        "partitions": [
+          {
+            "name": "BuildVersion",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let ",
+                "Source = #\"SqlServer aswizarg-server.database.windows.net AdventureWorksDBKamil3\", ",
+                "#\"dbo_BuildVersion\" = Source{[Schema=\"dbo\",Item=\"BuildVersion\"]}[Data] ",
+                "in ",
+                "#\"dbo_BuildVersion\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.Customer",
+        "description": "All data from SalesLT.Customer",
+        "columns": [
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "CustomerID"
+          },
+          {
+            "name": "NameStyle",
+            "dataType": "boolean",
+            "isNullable": false,
+            "sourceColumn": "NameStyle",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Title",
+            "dataType": "string",
+            "sourceColumn": "Title",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "FirstName",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "FirstName",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "MiddleName",
+            "dataType": "string",
+            "sourceColumn": "MiddleName",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "LastName",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "LastName",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "Suffix",
+            "dataType": "string",
+            "sourceColumn": "Suffix",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "CompanyName",
+            "dataType": "string",
+            "sourceColumn": "CompanyName",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "SalesPerson",
+            "dataType": "string",
+            "sourceColumn": "SalesPerson",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "EmailAddress",
+            "dataType": "string",
+            "sourceColumn": "EmailAddress",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "Phone",
+            "dataType": "string",
+            "sourceColumn": "Phone",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "PasswordHash",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "PasswordHash",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "PasswordSalt",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "PasswordSalt",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 13
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 14
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.Customer",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let ",
+                "Source = #\"SqlServer aswizarg-server.database.windows.net AdventureWorksDBKamil3\", ",
+                "#\"SalesLT_Customer\" = Source{[Schema=\"SalesLT\",Item=\"Customer\"]}[Data] ",
+                "in ",
+                "#\"SalesLT_Customer\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.CustomerAddress",
+        "description": "All data from SalesLT.CustomerAddress",
+        "columns": [
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "CustomerID"
+          },
+          {
+            "name": "AddressID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "AddressID",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "AddressType",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "AddressType",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.CustomerAddress",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let ",
+                "Source = #\"SqlServer aswizarg-server.database.windows.net AdventureWorksDBKamil3\", ",
+                "#\"SalesLT_CustomerAddress\" = Source{[Schema=\"SalesLT\",Item=\"CustomerAddress\"]}[Data] ",
+                "in ",
+                "#\"SalesLT_CustomerAddress\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ErrorLog",
+        "description": "All data from ErrorLog",
+        "columns": [
+          {
+            "name": "ErrorLogID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ErrorLogID"
+          },
+          {
+            "name": "ErrorTime",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ErrorTime",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "UserName",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "UserName",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "ErrorNumber",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ErrorNumber",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "ErrorSeverity",
+            "dataType": "int64",
+            "sourceColumn": "ErrorSeverity",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "ErrorState",
+            "dataType": "int64",
+            "sourceColumn": "ErrorState",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "ErrorProcedure",
+            "dataType": "string",
+            "sourceColumn": "ErrorProcedure",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "ErrorLine",
+            "dataType": "int64",
+            "sourceColumn": "ErrorLine",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "ErrorMessage",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "ErrorMessage",
+            "displayOrdinal": 8
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ErrorLog",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let ",
+                "Source = #\"SqlServer aswizarg-server.database.windows.net AdventureWorksDBKamil3\", ",
+                "#\"dbo_ErrorLog\" = Source{[Schema=\"dbo\",Item=\"ErrorLog\"]}[Data] ",
+                "in ",
+                "#\"dbo_ErrorLog\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.Product",
+        "description": "All data from SalesLT.Product",
+        "columns": [
+          {
+            "name": "ProductID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductID"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Name",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "ProductNumber",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "ProductNumber",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "Color",
+            "dataType": "string",
+            "sourceColumn": "Color",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "StandardCost",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "StandardCost",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "ListPrice",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "ListPrice",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "Size",
+            "dataType": "string",
+            "sourceColumn": "Size",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "Weight",
+            "dataType": "decimal",
+            "sourceColumn": "Weight",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "ProductCategoryID",
+            "dataType": "int64",
+            "sourceColumn": "ProductCategoryID",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "ProductModelID",
+            "dataType": "int64",
+            "sourceColumn": "ProductModelID",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "SellStartDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "SellStartDate",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "SellEndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "SellEndDate",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "DiscontinuedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DiscontinuedDate",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "ThumbNailPhoto",
+            "dataType": "binary",
+            "sourceColumn": "ThumbNailPhoto",
+            "displayOrdinal": 13
+          },
+          {
+            "name": "ThumbnailPhotoFileName",
+            "dataType": "string",
+            "sourceColumn": "ThumbnailPhotoFileName",
+            "displayOrdinal": 14
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 15
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 16
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.Product",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let ",
+                "Source = #\"SqlServer aswizarg-server.database.windows.net AdventureWorksDBKamil3\", ",
+                "#\"SalesLT_Product\" = Source{[Schema=\"SalesLT\",Item=\"Product\"]}[Data] ",
+                "in ",
+                "#\"SalesLT_Product\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.ProductCategory",
+        "description": "All data from SalesLT.ProductCategory",
+        "columns": [
+          {
+            "name": "ProductCategoryID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductCategoryID"
+          },
+          {
+            "name": "ParentProductCategoryID",
+            "dataType": "int64",
+            "sourceColumn": "ParentProductCategoryID",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Name",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.ProductCategory",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let ",
+                "Source = #\"SqlServer aswizarg-server.database.windows.net AdventureWorksDBKamil3\", ",
+                "#\"SalesLT_ProductCategory\" = Source{[Schema=\"SalesLT\",Item=\"ProductCategory\"]}[Data] ",
+                "in ",
+                "#\"SalesLT_ProductCategory\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.ProductDescription",
+        "description": "All data from SalesLT.ProductDescription",
+        "columns": [
+          {
+            "name": "ProductDescriptionID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductDescriptionID"
+          },
+          {
+            "name": "Description",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Description",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 3
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.ProductDescription",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let ",
+                "Source = #\"SqlServer aswizarg-server.database.windows.net AdventureWorksDBKamil3\", ",
+                "#\"SalesLT_ProductDescription\" = Source{[Schema=\"SalesLT\",Item=\"ProductDescription\"]}[Data] ",
+                "in ",
+                "#\"SalesLT_ProductDescription\""
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "78ff5fcc-4591-4707-a089-22e977aa9568",
+        "fromTable": "SalesLT.CustomerAddress",
+        "fromColumn": "AddressID",
+        "toTable": "SalesLT.Address",
+        "toColumn": "AddressID"
+      },
+      {
+        "name": "43c6d0a7-3144-4844-89a2-ba51695c4309",
+        "fromTable": "SalesLT.CustomerAddress",
+        "fromColumn": "CustomerID",
+        "toTable": "SalesLT.Customer",
+        "toColumn": "CustomerID"
+      },
+      {
+        "name": "f0f17d22-3d53-4f02-ace4-0f024e645c05",
+        "fromTable": "SalesLT.Product",
+        "fromColumn": "ProductCategoryID",
+        "toTable": "SalesLT.ProductCategory",
+        "toColumn": "ProductCategoryID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ASW-DEFAULT-DIAGRAM",
+        "value": "{\"Version\":1,\"Name\":\"default\",\"Tables\":[{\"TableName\":\"SalesLT.CustomerAddress\",\"X\":310,\"Y\":310,\"Z\":1,\"Width\":225,\"Height\":275},{\"TableName\":\"SalesLT.Customer\",\"X\":610,\"Y\":310,\"Z\":7,\"Width\":225,\"Height\":275},{\"TableName\":\"SalesLT.Address\",\"X\":310,\"Y\":610,\"Z\":2,\"Width\":225,\"Height\":275},{\"TableName\":\"SalesLT.Product\",\"X\":10,\"Y\":10,\"Z\":3,\"Width\":225,\"Height\":275},{\"TableName\":\"SalesLT.ProductCategory\",\"X\":310,\"Y\":10,\"Z\":4,\"Width\":225,\"Height\":275},{\"TableName\":\"SalesLT.ProductDescription\",\"X\":10,\"Y\":310,\"Z\":5,\"Width\":225,\"Height\":275},{\"TableName\":\"ErrorLog\",\"X\":10,\"Y\":610,\"Z\":6,\"Width\":225,\"Height\":275},{\"TableName\":\"BuildVersion\",\"X\":610,\"Y\":10,\"Z\":8,\"Width\":225,\"Height\":275},{\"TableName\":\"hthththth\",\"X\":200,\"Y\":200,\"Z\":8,\"Width\":225,\"Height\":275}]}"
+      }
+    ]
+  }
+}
